@@ -8,14 +8,14 @@ public class gamelogic : MonoBehaviour
 {
 
     public TMP_InputField leftInput, rightInput;
-    public TextMeshProUGUI numbers, result, textResult;
+    public TextMeshProUGUI numbers, result, textResult, corrects;
 
     public Canvas gameCanvas;
     public Canvas finishCanvas;
 
     Game[] games;
 
-    int correct = 0;
+    int correct = 6;
     int numberGame = 0;
     public void validate()
     {
@@ -54,6 +54,7 @@ public class gamelogic : MonoBehaviour
 
     void testResult()
     {
+        corrects.text = "Correctas: " + correct + " de " + games.Length + " preguntas";
         if(correct < 6)
         {
             textResult.text = "“Ups, Esfuérzate un poco más, intenta nuevamente para que obtengas más puntos”";
@@ -83,7 +84,7 @@ public class gamelogic : MonoBehaviour
             new Game(7, "10, 2, 5, 8") };
         numbers.text = games[0].numbers;
         result.text = games[0].result.ToString();
-        numberGame = 0;
+        numberGame = 10;
         gameCanvas.enabled = true;
         finishCanvas.enabled = false;
     }
